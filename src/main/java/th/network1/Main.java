@@ -26,10 +26,10 @@ public class Main {
         Switch sw4 = new Switch("Dlink-SW4_10", 10);
         Switch sw5 = new Switch("NoName-SW5_4", 4);
         Router r3 = new Router("Juniper_R3_8", 24);
-        Router r5 = new Router("cisco_R5_8", 96);
+        Router r5 = new Router("cisco_R5_8", 44);
         Router r6 = new Router("Juniper_R6_8", 48);
         Router r4 = new Router("Dlink_R4_8", 16);
-        Network net1 = new Network("SuperNet");
+        Network net1 = new Network("SuperNets");
 //        System.out.println(r1.getInfo());
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         System.out.println("@@@@@@@@@@@@@   Создаем первоначальную сеть   @@@@@@@@@@@@@@@@@@@@@");
