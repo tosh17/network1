@@ -52,7 +52,7 @@ public class Main {
         net1.disconnect(r4,2);
         net1.disconnect(r1,2);
         net1.disconnect(sw2,2);
-        net1.getInfo();
+        System.out.println(net1.getInfo());
         
         
     }   
