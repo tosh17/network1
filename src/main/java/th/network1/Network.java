@@ -49,15 +49,15 @@ public class Network {
             rport = rdev.findPortDivice(dev);
             dev.delLink(port);
             rdev.delLink(rport);
-        }
-        else {
-        System.out.println("устройство " + dev.getName() + " не содержит подключений на порту " + port);
+        } else {
+            System.out.println("устройство " + dev.getName() + " не содержит подключений на порту " + port);
         }
     }
-   public void getInfo(){
-       devices.stream().forEach((i) -> {
-           System.out.println(i.getInfo());
-        });
-   }
+    public String getInfo() {
+        String str = "";
+        for (NetDevice i : devices.toArray(new NetDevice[devices.size()])) {
+            str = str + System.lineSeparator() + i.getInfo();
+        }
+        return str;
+    }
 }
-
