@@ -13,8 +13,8 @@ import java.util.*;
  */
 public class Network {
 
-    private String name;
-    private List<NetDevice> devices = new ArrayList<>();
+    private final String name;
+    private final List<NetDevice> devices = new ArrayList<>();
 
     Network(String name) {
         this.name = name;
@@ -55,8 +55,9 @@ public class Network {
         }
     }
    public void getInfo(){
-       for(NetDevice i : devices.toArray(new NetDevice[devices.size()]))
+       devices.stream().forEach((i) -> {
            System.out.println(i.getInfo());
+        });
    }
 }
 
