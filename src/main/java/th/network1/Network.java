@@ -6,12 +6,14 @@
 package th.network1;
 
 import java.util.*;
+import java.io.Serializable;
+
 
 /**
  *
  * @author a_scherbakov
  */
-public class Network implements Netcomand {
+public class Network implements Netcomand,Serializable {
 
     private String name;
     private List<NetDevice> devices = new ArrayList<>();

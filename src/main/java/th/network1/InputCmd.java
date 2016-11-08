@@ -31,13 +31,15 @@ public class InputCmd {
         return true;
     }
 
-    public void analiz() {
+    public void analiz() throws IOException {
         if (line.indexOf("addDevice", 0) == 0) {
             addDev();
         } else if (line.indexOf("removeDevice", 0) == 0) {
             remDev();
         } else if (line.indexOf("print", 0) == 0) {
             print();
+        } else if (line.indexOf("save", 0) == 0) {
+            save();
         }
     }
 
@@ -59,5 +61,9 @@ public class InputCmd {
 
     private void print() {
         System.out.println(net.getInfo());
+    }
+
+    private void save() throws IOException {
+        new Save().serial(net,"nets.save");
     }
 }

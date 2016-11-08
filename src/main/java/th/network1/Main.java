@@ -14,7 +14,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         // TODO code application logic here
         
              // TODO code application logic here
@@ -31,7 +31,7 @@ public class Main {
         Router r4 = new Router("Dlink_R4_8", 16);
         Network net1 = new Network("SuperNets");
 //        System.out.println(r1.getInfo());
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     /*   System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         System.out.println("@@@@@@@@@@@@@   Создаем первоначальную сеть   @@@@@@@@@@@@@@@@@@@@@");
         net1.addDevice(r1);
         net1.addDevice(sw1);
@@ -53,12 +53,16 @@ public class Main {
         net1.disconnect(r1,2);
         net1.disconnect(sw2,2);
         System.out.println(net1.getInfo());
-        
-     InputCmd cmd = new InputCmd(net1);
+    */    
+    Save s=new Save();
+    //s.serial(net1,"nets.save");
+      net1=(Network) s.load("nets.save");
+        InputCmd cmd = new InputCmd(net1);
      while(cmd.input()){
      cmd.analiz();}
-   
+       
     }   
+    
     }
     
 

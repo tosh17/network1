@@ -6,11 +6,14 @@
 package th.network1;
 //package comand;
 
+import java.io.Serializable;
+
+
 /**
  *
  * @author a_scherbakov
  */
-public class  NetDevice  {
+public class  NetDevice implements Serializable {
 
     private int ports;
     String name;
