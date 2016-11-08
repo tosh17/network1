@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package th.network1;
+//package comand;
 
 /**
  *
  * @author a_scherbakov
  */
-public class NetDevice {
+public class  NetDevice  {
 
     private int ports;
     String name;
@@ -28,6 +29,7 @@ public class NetDevice {
     }
 
     public String getInfo() {
+        if (this==null) return "";
         String str;
         str = getType() + " : " + getName() + System.lineSeparator() + "Количество портов : " + ports;
         for (int i = 0; i < ports; i++) {

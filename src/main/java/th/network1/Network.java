@@ -11,17 +11,31 @@ import java.util.*;
  *
  * @author a_scherbakov
  */
-public class Network {
+public class Network implements Netcomand {
 
-    private final String name;
-    private final List<NetDevice> devices = new ArrayList<>();
+    private String name;
+    private List<NetDevice> devices = new ArrayList<>();
 
     Network(String name) {
         this.name = name;
     }
 
+    @Override
     public void addDevice(NetDevice d) {
         devices.add(d);
+    }
+
+    @Override
+    public void remDevice(String str) {
+        for (NetDevice dev : devices) {
+            if (dev.getName().equalsIgnoreCase(str)) {
+                for (int i = 0; i < dev.getport(); i++) {
+                disconnect(dev,i);
+                }
+                devices.remove(dev);
+                break;
+            }
+        }
     }
 
     public int getSize() {
@@ -53,6 +67,7 @@ public class Network {
             System.out.println("устройство " + dev.getName() + " не содержит подключений на порту " + port);
         }
     }
+
     public String getInfo() {
         String str = "";
         for (NetDevice i : devices.toArray(new NetDevice[devices.size()])) {
@@ -60,4 +75,5 @@ public class Network {
         }
         return str;
     }
+
 }

@@ -54,7 +54,10 @@ public class Main {
         net1.disconnect(sw2,2);
         System.out.println(net1.getInfo());
         
-        
+     InputCmd cmd = new InputCmd(net1);
+     while(cmd.input()){
+     cmd.analiz();}
+   
     }   
     }
     
