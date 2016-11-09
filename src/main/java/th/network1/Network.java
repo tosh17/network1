@@ -72,7 +72,7 @@ public class Network implements Netcomand,Serializable {
 
     public String getInfo() {
         String str = "";
-        for (NetDevice i : devices.toArray(new NetDevice[devices.size()])) {
+        for (NetDevice i : devices) {
             str = str + System.lineSeparator() + i.getInfo();
         }
         return str;
