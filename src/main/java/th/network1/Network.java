@@ -8,12 +8,11 @@ package th.network1;
 import java.util.*;
 import java.io.Serializable;
 
-
 /**
  *
  * @author a_scherbakov
  */
-public class Network implements Netcomand,Serializable {
+public class Network implements Netcomand, Serializable {
 
     private String name;
     private List<NetDevice> devices = new ArrayList<>();
@@ -32,7 +31,7 @@ public class Network implements Netcomand,Serializable {
         for (NetDevice dev : devices) {
             if (dev.getName().equalsIgnoreCase(str)) {
                 for (int i = 0; i < dev.getport(); i++) {
-                disconnect(dev,i);
+                    disconnect(dev, i);
                 }
                 devices.remove(dev);
                 break;
@@ -78,4 +77,16 @@ public class Network implements Netcomand,Serializable {
         return str;
     }
 
+    public void setRoot(NetDevice dev) {
+        dev.setRootHop(0);
+    }
+
+    public void makePatch(NetDevice dev, int cost) {
+        for (int i = 0; i < dev.getport(); i++) {
+            if (dev.getPortDivice(i).getRootHop() < cost + 1) {
+                dev.getPortDivice(i).setRootHop(cost + 1);
+                makePatch(dev.getPortDivice(i), cost + 1);
+            }
+        }
+    }
 }

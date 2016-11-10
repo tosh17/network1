@@ -8,17 +8,17 @@ package th.network1;
 
 import java.io.Serializable;
 
-
 /**
  *
  * @author a_scherbakov
  */
-public class  NetDevice implements Serializable {
+public class NetDevice implements Serializable {
 
     private int ports;
     String name;
     private NetDevice connections[];
     private static final String TYPE = "NetDevice";
+    private int rootHop = -1;
 //konstruktor
 
     NetDevice(String name, int port) {
@@ -32,7 +32,9 @@ public class  NetDevice implements Serializable {
     }
 
     public String getInfo() {
-        if (this==null) return "";
+        if (this == null) {
+            return "";
+        }
         String str;
         str = getType() + " : " + getName() + System.lineSeparator() + "Количество портов : " + ports;
         for (int i = 0; i < ports; i++) {
@@ -76,5 +78,13 @@ public class  NetDevice implements Serializable {
             }
         }
         return port;
+    }
+
+    public void setRootHop(int i) {
+        rootHop = i;
+    }
+
+    public int getRootHop() {
+        return rootHop;
     }
 }
